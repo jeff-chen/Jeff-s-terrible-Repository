@@ -1,8 +1,10 @@
 class Piece
   attr_accessor :position
+  attr_accessor :player
   #
   #
-  def initialize(x=0, y=0)
+  def initialize(player=nil,x=0, y=0)
+    @player = player
     position = {:x => x, :y => y}
   end
   

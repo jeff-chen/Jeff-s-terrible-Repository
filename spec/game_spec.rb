@@ -21,5 +21,12 @@ describe Board do
   it 'has a board' do
     @game.board.should_not be_nil
   end
-  
+  it 'alternates the player from white to black' do
+    @game.alternate_player
+    @game.current_player.should be_black
+  end
+  it 'alternates the player from black to white' do
+    @game.alternate_player
+    @game.current_player.should be_black
+  end
 end

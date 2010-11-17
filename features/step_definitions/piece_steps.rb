@@ -22,3 +22,9 @@ When /^I move the vulpix at (\d+), (\d+) left (\d+) spaces and down (\d+) space$
   raise "Lol wtf there's no piece there!" if piece == Board::BLANK
   $board.move_piece(piece, -(d1.to_i), d2.to_i)
 end
+
+When /^I move the piece at (\d+), (\d+) right (\d+) spaces and up (\d+) space$/ do |x1, x2, d1, d2|
+  piece = $board[x1.to_i, x2.to_i]
+  raise "Lol wtf there's no piece there!" if piece == Board::BLANK
+  $board.move_piece(piece, d1.to_i, -(d2.to_i))
+end

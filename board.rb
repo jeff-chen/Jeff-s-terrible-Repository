@@ -63,7 +63,7 @@ class Board
     str = ""
     1.upto(SIZE) do |i|
       1.upto(SIZE) do |j|
-        str += "| " + representation(i, j) + " "
+        str += "| " + representation(j,i) + " "
       end
       str += "|\n"
     end

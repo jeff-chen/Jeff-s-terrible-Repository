@@ -29,4 +29,10 @@ describe Player do
     @player.should_not be_black
     @player.should_not be_white
   end
+  
+  it 'has pieces' do
+    @game = Game.new
+    @player = @game.white_player
+    @player.pieces(@game).size.should == 16
+  end
 end

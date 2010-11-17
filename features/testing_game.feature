@@ -4,7 +4,7 @@ Feature: Setting up a game
   Scenario: Setting up the game
     As a White Player,
     Given I have a game
-    Then the White Player be the Current Player
+    Then the White Player should be the Current Player
     And I should see the following board:
     | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
     | R | N | B | Q | K | B | N | R |
@@ -19,8 +19,8 @@ Feature: Setting up a game
   Scenario: Taking A Turn
     As a White Player,
     Given I have a game
-    And I move the piece at 5, 7 to 5, 5
-    Then the Black Player be the Current Player
+    And I move the piece at 5, 7 right 0 spaces and up 2 space
+    #Then the Black Player should be the Current Player
     And I should see the following board:
     | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
     | R | N | B | Q | K | B | N | R |
