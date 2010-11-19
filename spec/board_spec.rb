@@ -15,6 +15,14 @@ describe Board do
     end
   end
   
+  it 'counts anywhere it is not defined as out of bounds' do
+    @board.is_in_bounds?([1,8]).should be_true
+    @board.is_in_bounds?([1,9]).should_not be_true
+    @board.is_in_bounds?([0,1]).should_not be_true
+    @board.is_in_bounds?([1,0]).should_not be_true
+    @board.is_in_bounds?([9,1]).should_not be_true
+  end
+  
   it 'should not be defined at 1,9' do
     lambda{@board[1,9]}.should raise_error(OutOfBoundsLolError)
   end
@@ -115,5 +123,17 @@ describe Board do
     @board[1,7].should == 0
     @board[1,8].should == @piece
     
+  end
+  it 'knows when a piece is occupied' do
+    @piece = Piece.new(@piece)
+    @board.add_piece(@piece, 1, 8)
+    @board.should be_occupied(1,8)
+    @board.should_not be_occupied(2,8)
+  end
+  it 'knows its rank and file' do
+    @piece = Piece.new(@piece)
+    @board.add_piece(@piece, 1, 8)
+    @piece.rank(@board).should == 8
+    @piece.file(@board).should == 1
   end
 end

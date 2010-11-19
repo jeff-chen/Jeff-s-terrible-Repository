@@ -1,11 +1,12 @@
 class Board
   SIZE = 8
-  BLANK = 0
+  VERTICAL_SIZE = 8
+  BLANK = ""
   
   attr_accessor :places
   
   def initialize
-    @places = Array.new(SIZE) { Array.new(SIZE, 0) }
+    @places = Array.new(SIZE) { Array.new(SIZE, BLANK) }
     
   end
   
@@ -17,6 +18,18 @@ class Board
     raise OutOfBoundsLolError if(x.to_i < 1 || y.to_i < 1 || y.to_i > SIZE || x.to_i > SIZE) 
     @places[x.to_i - 1][y.to_i - 1] = z
   end
+  
+  def is_in_bounds?(x1, y1)
+    bleh = true
+    bleh &= (x1 >= 1 && x1[0] <= VERTICAL_SIZE)
+    bleh &= (y1 >= 1 && y1 <= SIZE)
+    bleh
+  end
+  
+  def occupied?(x, y)
+    self[x,y] != BLANK
+  end
+  
   def add_piece(piece, x, y)
     self[x,y]= piece
   end
@@ -42,17 +55,17 @@ class Board
           x = 1 - coords[0]
         end
       end
-      if coords[1] + y > SIZE || coords[y] + y < 1
+      if coords[1] + y > SIZE || coords[1] + y < 1
         if y > 0
           y = SIZE - coords[1]
         else 
           y = 1 - coords[1]
         end
       end
-      if self[coords[0]+x,coords[1]+y] == BLANK
-        self[coords[0], coords[1]] = BLANK
-        self[coords[0]+x, coords[1]+y] = piece
-      end
+      #if self[coords[0]+x,coords[1]+y] == BLANK
+      self[coords[0], coords[1]] = BLANK
+      self[coords[0]+x, coords[1]+y] = piece
+      #end
     end
   end
   

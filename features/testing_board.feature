@@ -21,14 +21,14 @@ Feature: Setting up the board
     Given I have a board
     Then I should see the following board: 
     | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
-    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+    |   |   |   |   |   |   |   |   |
+    |   |   |   |   |   |   |   |   |
+    |   |   |   |   |   |   |   |   |
+    |   |   |   |   |   |   |   |   |
+    |   |   |   |   |   |   |   |   |
+    |   |   |   |   |   |   |   |   |
+    |   |   |   |   |   |   |   |   |
+    |   |   |   |   |   |   |   |   |
 
   Scenario: Representing a piece on board
     Given I have a board
@@ -36,14 +36,14 @@ Feature: Setting up the board
     When I make a vulpix at 2, 2
     Then I should see the following board:
     | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
-    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-    | 0 | V | 0 | 0 | 0 | 0 | 0 | 0 |
-    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+    |   |   |   |   |   |   |   |   |
+    |   | V |   |   |   |   |   |   |
+    |   |   |   |   |   |   |   |   |
+    |   |   |   |   |   |   |   |   |
+    |   |   |   |   |   |   |   |   |
+    |   |   |   |   |   |   |   |   |
+    |   |   |   |   |   |   |   |   |
+    |   |   |   |   |   |   |   |   |
 
 	  Scenario: Representing some pieces on board
 	    Given I have a board
@@ -53,14 +53,14 @@ Feature: Setting up the board
 	    And I make a vulpix at 6, 8
 	    Then I should see the following board:
 	    | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | V | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | V | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | 0 | 0 | V | 0 | 0 |
+	    |   |   |   |   |   |   |   |   |
+	    |   | V |   |   |   |   |   |   |
+	    |   |   |   |   |   |   |   |   |
+	    |   |   |   | V |   |   |   |   |
+	    |   |   |   |   |   |   |   |   |
+	    |   |   |   |   |   |   |   |   |
+	    |   |   |   |   |   |   |   |   |
+	    |   |   |   |   |   | V |   |   |
 	
 	  Scenario: Representing a piece on board
 	    Given I have a board
@@ -70,14 +70,14 @@ Feature: Setting up the board
 	    And I move the vulpix at 4, 3 left 1 spaces and down 0 space
 	    Then I should see the following board:
 	    | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | V | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |	
+	    |   |   |   |   |   |   |   |   |
+	    |   |   |   |   |   |   |   |   |
+	    |   |   | V |   |   |   |   |   |
+	    |   |   |   |   |   |   |   |   |
+	    |   |   |   |   |   |   |   |   |
+	    |   |   |   |   |   |   |   |   |
+	    |   |   |   |   |   |   |   |   |
+	    |   |   |   |   |   |   |   |   |	
 	
 	  Scenario: Not moving a piece out of bounds to the right
 	    Given I have a board
@@ -86,14 +86,14 @@ Feature: Setting up the board
 	    And I move the vulpix at 7, 2 right 2 spaces and down 0 space
 	    Then I should see the following board:
 	    | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | V |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+	    |   |   |   |   |   |   |   |   |
+	    |   |   |   |   |   |   |   | V |
+	    |   |   |   |   |   |   |   |   |
+	    |   |   |   |   |   |   |   |   |
+	    |   |   |   |   |   |   |   |   |
+	    |   |   |   |   |   |   |   |   |
+	    |   |   |   |   |   |   |   |   |
+	    |   |   |   |   |   |   |   |   |
 	
 	  Scenario: Not moving a piece out of bounds to the left
 	    Given I have a board
@@ -102,30 +102,14 @@ Feature: Setting up the board
       And I move the vulpix at 2, 2 left 2 spaces and down 0 space
       Then I should see the following board:
       | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
-      | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-      | V | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-      | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-      | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-      | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-      | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-      | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-      | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	  Scenario: Not moving a piece into another piece
-	    Given I have a board
-      And I am setting up pieces
-      When I make a vulpix at 2, 2
-      And I make a vulpix at 4, 2
-      And I move the vulpix at 4, 2 left 2 spaces and down 0 space
-      Then I should see the following board:
-	    | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | V | 0 | V | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-	    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+      |   |   |   |   |   |   |   |   |
+      | V |   |   |   |   |   |   |   |
+      |   |   |   |   |   |   |   |   |
+      |   |   |   |   |   |   |   |   |
+      |   |   |   |   |   |   |   |   |
+      |   |   |   |   |   |   |   |   |
+      |   |   |   |   |   |   |   |   |
+      |   |   |   |   |   |   |   |   |
   Scenario: Assigning a piece to a square
     Given I have a board
     And I am setting up pieces

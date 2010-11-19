@@ -14,6 +14,14 @@ class Game
     @current_player = player
   end
   
+  def make_move(piece, x, y)
+    #log.update move if successful
+    #check legality of move here
+    
+    @board.move_piece(piece, x, y)
+    alternate_player
+  end
+  
   def white_player
     @players.select{|p| p.white?}.first
   end
@@ -22,7 +30,7 @@ class Game
     @players.select{|p| p.black?}.first
   end
   def alternate_player
-    if @current_player = white_player
+    if @current_player == white_player
       @current_player = black_player
     else
       @current_player = white_player
@@ -36,12 +44,14 @@ class Game
       positions.each do |p|
         p[1].each do |spot|
           if player.white?
-            board.add_piece(p[0].new(player), spot[0], spot[1])
-          else
             board.add_piece(p[0].new(player), spot[0], 9-spot[1])
+          else
+            board.add_piece(p[0].new(player), spot[0], spot[1])
           end
         end
       end
     end
   end
+  
+  
 end

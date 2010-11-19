@@ -2,7 +2,7 @@ class Vulpix < Piece
   attr_accessor :name
   attr_accessor :hp
   
-  def initialize(name = "", hp = 0, x=0, y=0)
+  def initialize(x=0, y=0, name = "", hp = 0)
     super(x, y)
     @name = name
     @hp = hp
@@ -12,8 +12,5 @@ class Vulpix < Piece
     "Name: #{@name} HP: #{@hp}"
   end
   
-  #def symbol
-  #  "V"
-  #end
   
 end

@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/spec_helper'
 
-describe Board do
+describe Game do
   before do
     @game = Game.new
   end
@@ -29,4 +29,6 @@ describe Board do
     @game.alternate_player
     @game.current_player.should be_black
   end
+  
+
 end

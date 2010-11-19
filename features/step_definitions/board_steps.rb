@@ -18,3 +18,17 @@ Then /^I should see the following board:$/i do |table|
   end
 end
 
+Then /^White should have the following pieces:$/i do |table|
+  #omg this is fugly
+  table.hashes.each do |i|
+    klass = Kernel.const_get(i["piece"])
+    $game.white_player.pieces($game).select{|p| p.is_a?(klass)}.size.should == i["number"].to_i
+  end
+end
+Then /^Black should have the following pieces:$/i do |table|
+  #omg this is fugly
+  table.hashes.each do |i|
+    klass = Kernel.const_get(i["piece"])
+    $game.black_player.pieces($game).select{|p| p.is_a?(klass)}.size.should == i["number"].to_i
+  end
+end
