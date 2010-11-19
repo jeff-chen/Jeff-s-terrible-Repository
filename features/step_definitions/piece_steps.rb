@@ -34,6 +34,7 @@ Then /^the piece at (\d+), (\d+) should be white$/i do |x1, x2|
   piece.should be_white
 end
 Then /^the piece at (\d+), (\d+) should be allowed to move to (\d+), (\d+)$/ do |x1, y1, x2, y2|
+  #puts $board[x1.to_i, y1.to_i].inspect
   $board[x1.to_i, y1.to_i].legal_moves_for_board($board).should include([x2.to_i, y2.to_i])
 end
 Then /^the piece at (\d+), (\d+) should not be allowed to move to (\d+), (\d+)$/ do |x1, y1, x2, y2|

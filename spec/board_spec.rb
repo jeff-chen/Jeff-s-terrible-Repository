@@ -42,11 +42,11 @@ describe Board do
   end
   
   it 'should be able to assign things to a piece' do
-    @board[1,1].should == 0
-    @board[2,2].should == 0
+    @board[1,1].should == ""
+    @board[2,2].should == ""
     @board[1,1] = 3
     @board[1,1].should == 3
-    @board[2,2].should == 0
+    @board[2,2].should == ""
   end
   
   it 'should not assign things to invalid squares' do
@@ -79,9 +79,9 @@ describe Board do
     @piece = Piece.new
     @board.add_piece(@piece, 1, 1)
     @board[1,1].should == @piece
-    @board[1,2].should == 0
+    @board[1,2].should == ""
     @board.move_piece(@piece, 0, 1)
-    @board[1,1].should == 0
+    @board[1,1].should == ""
     @board[1,2].should == @piece
   end
   it 'should not move another piece into a piece' do
@@ -120,7 +120,7 @@ describe Board do
     @piece = Piece.new
     @board.add_piece(@piece, 1, 7)
     @board.move_piece(@piece, 0, 2)
-    @board[1,7].should == 0
+    @board[1,7].should == ""
     @board[1,8].should == @piece
     
   end
@@ -135,5 +135,21 @@ describe Board do
     @board.add_piece(@piece, 1, 8)
     @piece.rank(@board).should == 8
     @piece.file(@board).should == 1
+  end
+  it 'knows what pieces to expect' do
+    @game = Game.new
+    @board = @game.board
+    @board.pieces.should have(32).objects
+  end
+  it 'counts the white pieces' do
+    @game = Game.new
+    @board = @game.board
+    @board.white_pieces.should have(16).objects
+  end
+  it 'counts the black pieces' do
+    @game = Game.new
+    @board = @game.board
+    @board[5,1] = Board::BLANK
+    @board.black_pieces.should have(15).objects
   end
 end

@@ -27,8 +27,8 @@ describe Game do
   end
   it 'alternates the player from black to white' do
     @game.alternate_player
-    @game.current_player.should be_black
+    @game.alternate_player
+    @game.current_player.should be_white
   end
-  
 
 end

@@ -1,5 +1,5 @@
 class Pawn < Piece
-  
+  #todo: en passant
   
   def direction
     @player.white? ? -1 : 1
