@@ -58,15 +58,15 @@ Feature: Testing pawn legal movements
   Scenario: Not allowing a pinned pawn to move
     pending
     Given I have a game
-    When I make a black bishop at 3, 6
+    When I make a black bishop at 2, 5
     Then I should see the following board: 
     | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
     | R | N | B | Q | K | B | N | R |
     | P | P | P | P | P | P | P | P |
     |   |   |   |   |   |   |   |   |
     |   |   |   |   |   |   |   |   |
+    |   | B |   |   |   |   |   |   |
     |   |   |   |   |   |   |   |   |
-    |   |   | B |   |   |   |   |   |
     | P | P | P | P | P | P | P | P |
     | R | N | B | Q | K | B | N | R |
-    And the piece at 5, 7 should not be allowed to move anywhere
+    And the piece at 4, 7 should not be allowed to move anywhere

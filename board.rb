@@ -125,7 +125,7 @@ class Board
     str = ""
     1.upto(SIZE) do |i|
       1.upto(SIZE) do |j|
-        str += "| " + representation(j,i) + (representation(j,i) == BLANK.to_s? ? "  " : " ")
+        str += "| " + representation(j,i) + (representation(j,i) == BLANK ? "  " : " ")
       end
       str += "|\n"
     end

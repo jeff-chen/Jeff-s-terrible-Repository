@@ -58,6 +58,9 @@ end
 When /^I make a black king at (\d+), (\d+)$/i do |x, y|
   piece = $board.add_piece(King.new($game.black_player), x, y)
 end
+When /^I make a black knight at (\d+), (\d+)$/i do |x, y|
+  piece = $board.add_piece(Knight.new($game.black_player), x, y)
+end
 
 When /^I make a black queen at (\d+), (\d+)$/i do |x, y|
   piece = $board.add_piece(Queen.new($game.black_player), x, y)
