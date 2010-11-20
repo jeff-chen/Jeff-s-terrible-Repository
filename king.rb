@@ -1,4 +1,9 @@
 class King < Piece
+  attr_accessor :moved
+  BLACK_SPOT = [5, 1]
+  WHITE_SPOT = [5, 8]
+  
+  
   def baseline_moves_for_board(board)
     return_moves = []
     base_moves = [[1, 1], [1, 0], [1, -1], [0, 1], [0, -1], [-1, -1], [-1, 0], [-1, 1]]
@@ -13,6 +18,21 @@ class King < Piece
         end
       end
     end
-    return_moves
+    return_moves << castle_move(board)
+    return_moves.compact
+  end
+  
+  
+  def castle_move(board)
+    xy = position_on_board(board)
+    if xy == (player.white? ? WHITE_SPOT : BLACK_SPOT)
+      if !@moved && !board.occupied?(xy[0] + 1, xy[1]) && !board.occupied?(xy[0] + 2, xy[1]) && board.occupied?(xy[0] + 3, xy[1]) && (board[xy[0]+3, xy[1]].is_a?(Rook) && board[xy[0]+3, xy[1]].player == self.player)
+        return [xy[0] + 2, xy[1]]
+      end
+      if !@moved && !board.occupied?(xy[0] - 1, xy[1]) && !board.occupied?(xy[0] - 2, xy[1]) && !board.occupied?(xy[0] - 3, xy[1]) && board.occupied?(xy[0] - 4, xy[1]) && (board[xy[0]-4, xy[1]].is_a?(Rook) && board[xy[0]-4, xy[1]].player == self.player)
+        return [xy[0] - 2, xy[1]]
+      end
+    end
+    return nil
   end
 end

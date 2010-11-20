@@ -61,15 +61,27 @@ end
 When /^I make a black knight at (\d+), (\d+)$/i do |x, y|
   piece = $board.add_piece(Knight.new($game.black_player), x, y)
 end
+When /^I make a white king at (\d+), (\d+)$/ do |x, y|
+  piece = $board.add_piece(King.new($game.white_player), x, y)
+end
 
 When /^I make a black queen at (\d+), (\d+)$/i do |x, y|
   piece = $board.add_piece(Queen.new($game.black_player), x, y)
 end
+Then /^White should win the game$/ do
+  $game.check_winner.should == $game.white_player
+end
+Then /^there should be no winner$/ do
+  $game.check_winner.should be_nil
+end
+Then /^it should be stalemate$/ do
+  $game.check_winner.should == "Stalemate!"
+end
 
-When /^I move the piece at (\d+), (\d+) left (\d+) spaces and down (\d+) space$/ do |x1, x2, d1, d2|
+When /^I move the piece at (\d+), (\d+) to (\d+), (\d+)$/ do |x1, x2, d1, d2|
   piece = $board[x1.to_i, x2.to_i]
   raise "Lol wtf there's no piece there!" if piece == Board::BLANK
-  $board.move_piece(piece, -(d1.to_i), d2.to_i)
+  $game.take_turn(x1, x2, d1.to_i, d2.to_i)
 end
 Then /^the king for black should be capturable$/ do
   $board.should be_black_king_capturable # express the regexp above with the code you wish you had

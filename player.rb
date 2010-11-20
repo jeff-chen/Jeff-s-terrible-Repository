@@ -17,16 +17,13 @@ class Player
     @color == BLACK_NAME
   end
   
-  def pieces(game)
-    if game.board
-      things = []
-      1.upto(Board::SIZE) do |i|
-        1.upto(Board::SIZE) do |j|
-          things << game.board[i,j] if game.board[i,j].is_a?(Piece) && game.board[i,j].player == self
-        end
+  def pieces(board)
+    things = []
+    1.upto(Board::SIZE) do |i|
+      1.upto(Board::SIZE) do |j|
+        things << board[i,j] if board[i,j].is_a?(Piece) && board[i,j].player == self
       end
-      return things
     end
-    []
+    return things
   end
 end
