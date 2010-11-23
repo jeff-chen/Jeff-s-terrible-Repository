@@ -1,1 +1,3 @@
-WTF is this shit
+This is a test project.  It will eventually use eventmachine to act as a game server.  Also I will set up bundler soon - that is why Gemfile is blank at the moment.  Haven't decided what to use for GUI yet.
+
+Sorry for the very pithy description!!!!!!

@@ -33,11 +33,11 @@ Feature: Setting up the board
   Scenario: Representing a piece on board
     Given I have a board
     And I am setting up pieces
-    When I make a vulpix at 2, 2
+    When I make a piece at 2, 2
     Then I should see the following board:
     | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
     |   |   |   |   |   |   |   |   |
-    |   | V |   |   |   |   |   |   |
+    |   | P |   |   |   |   |   |   |
     |   |   |   |   |   |   |   |   |
     |   |   |   |   |   |   |   |   |
     |   |   |   |   |   |   |   |   |
@@ -48,70 +48,16 @@ Feature: Setting up the board
 	  Scenario: Representing some pieces on board
 	    Given I have a board
 	    And I am setting up pieces
-	    When I make a vulpix at 2, 2
-	    And I make a vulpix at 4, 4
-	    And I make a vulpix at 6, 8
+	    When I make a piece at 2, 2
+	    And I make a piece at 4, 4
+	    And I make a piece at 6, 8
 	    Then I should see the following board:
 	    | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 	    |   |   |   |   |   |   |   |   |
-	    |   | V |   |   |   |   |   |   |
+	    |   | P |   |   |   |   |   |   |
 	    |   |   |   |   |   |   |   |   |
-	    |   |   |   | V |   |   |   |   |
+	    |   |   |   | P |   |   |   |   |
 	    |   |   |   |   |   |   |   |   |
 	    |   |   |   |   |   |   |   |   |
 	    |   |   |   |   |   |   |   |   |
-	    |   |   |   |   |   | V |   |   |
-	 #Following are for tactics games
-	 # Scenario: Representing a piece on board
-	 #   Given I have a board
-	 #   And I am setting up pieces
-	 #   When I make a vulpix at 2, 2
-	 #   And I move the vulpix at 2, 2 right 2 spaces and down 1 space
-	 #   And I move the vulpix at 4, 3 left 1 spaces and down 0 space
-	 #   Then I should see the following board:
-	 #   | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
-	 #   |   |   |   |   |   |   |   |   |
-	 #   |   |   |   |   |   |   |   |   |
-	 #   |   |   | V |   |   |   |   |   |
-	 #   |   |   |   |   |   |   |   |   |
-	 #   |   |   |   |   |   |   |   |   |
-	 #   |   |   |   |   |   |   |   |   |
-	 #   |   |   |   |   |   |   |   |   |
-	 #   |   |   |   |   |   |   |   |   |	
-	 #
-	 # Scenario: Not moving a piece out of bounds to the right
-	 #   Given I have a board
-	 #   And I am setting up pieces
-	 #   When I make a vulpix at 7, 2
-	 #   And I move the vulpix at 7, 2 right 2 spaces and down 0 space
-	 #   Then I should see the following board:
-	 #   | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
-	 #   |   |   |   |   |   |   |   |   |
-	 #   |   |   |   |   |   |   |   | V |
-	 #   |   |   |   |   |   |   |   |   |
-	 #   |   |   |   |   |   |   |   |   |
-	 #   |   |   |   |   |   |   |   |   |
-	 #   |   |   |   |   |   |   |   |   |
-	 #   |   |   |   |   |   |   |   |   |
-	 #   |   |   |   |   |   |   |   |   |
-	 #
-	 # Scenario: Not moving a piece out of bounds to the left
-	 #   Given I have a board
-   #   And I am setting up pieces
-   #   When I make a vulpix at 2, 2
-   #   And I move the vulpix at 2, 2 left 2 spaces and down 0 space
-   #   Then I should see the following board:
-   #   | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
-   #   |   |   |   |   |   |   |   |   |
-   #   | V |   |   |   |   |   |   |   |
-   #   |   |   |   |   |   |   |   |   |
-   #   |   |   |   |   |   |   |   |   |
-   #   |   |   |   |   |   |   |   |   |
-   #   |   |   |   |   |   |   |   |   |
-   #   |   |   |   |   |   |   |   |   |
-   #   |   |   |   |   |   |   |   |   |
-  Scenario: Assigning a piece to a square
-    Given I have a board
-    And I am setting up pieces
-    #W
-    
+	    |   |   |   |   |   | P |   |   |

@@ -23,7 +23,7 @@ Then /^the (\w+) Player should be the Current Player$/i do |color|
 end
 When /^I move the piece at (\d+), (\d+) right (\d+) spaces and up (\d+) space$/ do |x1, x2, d1, d2|
   piece = $board[x1.to_i, x2.to_i]
-  raise "Lol wtf there's no piece there!" if piece == Board::BLANK
+  raise "There's no piece there!" if piece == Board::BLANK
   $game.make_move(piece, d1.to_i, -(d2.to_i))
 end
 When /^I make a white piece at (\d+), (\d+)$/i do |x, y|
@@ -33,18 +33,11 @@ When /^I make a black piece at (\d+), (\d+)$/i do |x, y|
   piece = $board.add_piece(Piece.new($game.black_player), x, y)
 end
 
-When /^I make a white vulpix at (\d+), (\d+)$/i do |x, y|
-  piece = $board.add_piece(Vulpix.new($game.white_player), x, y)
-end
-
 When /^I make a black pawn at (\d+), (\d+)$/i do |x, y|
   piece = $board.add_piece(Pawn.new($game.black_player), x, y)
 end
 When /^I make a white pawn at (\d+), (\d+)$/i do |x, y|
   piece = $board.add_piece(Pawn.new($game.white_player), x, y)
-end
-When /^I make a black vulpix at (\d+), (\d+)$/i do |x, y|
-  piece = $board.add_piece(Vulpix.new($game.black_player), x, y)
 end
 When /^I make a black bishop at (\d+), (\d+)$/i do |x, y|
   piece = $board.add_piece(Bishop.new($game.black_player), x, y)
@@ -80,7 +73,7 @@ end
 
 When /^I move the piece at (\d+), (\d+) to (\d+), (\d+)$/ do |x1, x2, d1, d2|
   piece = $board[x1.to_i, x2.to_i]
-  raise "Lol wtf there's no piece there!" if piece == Board::BLANK
+  raise "There's no piece there!" if piece == Board::BLANK
   $game.take_turn(x1, x2, d1.to_i, d2.to_i)
 end
 Then /^the king for black should be capturable$/ do

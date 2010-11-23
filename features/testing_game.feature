@@ -1,29 +1,6 @@
 Feature: Setting up a game
   Hi Game!
 
-  #Scenario: Moving a piece into another enemy piece
-  #  Given I have a blank game
-  #  When I make a white vulpix at 2, 2
-  #  And I make a black vulpix at 4, 2
-  #  And I move the piece at 4, 2 left 2 spaces and down 0 space
-  #  Then the piece at 2, 2 should be black
-  #  Then I should see the following board:
-  #  | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
-  #  |   |   |   |   |   |   |   |   |
-  #  |   | V |   |   |   |   |   |   |
-  #  |   |   |   |   |   |   |   |   |
-  #  |   |   |   |   |   |   |   |   |
-  #  |   |   |   |   |   |   |   |   |
-  #  |   |   |   |   |   |   |   |   |
-  #  |   |   |   |   |   |   |   |   |
-  #  |   |   |   |   |   |   |   |   |
-  #  And Black should have the following pieces:
-  #  |number | piece |
-  #  | 1 | Vulpix |
-  #  And White should have the following pieces:
-  #  | number | piece |
-  #  | 0 | Vulpix |
-
   Scenario: Setting up the game
     As a White Player,
     Given I have a game
@@ -102,6 +79,28 @@ Feature: Setting up a game
     | R | N | B |   | K | B | N | R |
     Then White should win the game
 
+  Scenario: Not recognizing checkmate when there is an escape for the king
+    Given I have a game
+    When I move the piece at 5, 7 to 5, 5
+    And I move the piece at 6, 2 to 6, 3
+    And I move the piece at 4, 7 to 4, 5
+    And I move the piece at 5, 2 to 5, 4
+    And I move the piece at 4, 8 to 8, 4
+    Then I should see the following board:
+    | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+    | R | N | B | Q | K | B | N | R |
+    | P | P | P | P |   |   | P | P |
+    |   |   |   |   |   | P |   |   |
+    |   |   |   |   | P |   |   | Q |
+    |   |   |   | P | P |   |   |   |
+    |   |   |   |   |   |   |   |   |
+    | P | P | P |   |   | P | P | P |
+    | R | N | B |   | K | B | N | R |
+    And the piece at 6, 1 should not be allowed to move anywhere
+    And the piece at 5, 1 should be allowed to move to 5, 2
+    And the piece at 7, 2 should be allowed to move to 7, 3
+    And there should be no winner
+
   Scenario: Recognizing not Checkmate
     Given I have a game
     When I move the piece at 5, 7 to 5, 5
@@ -118,7 +117,7 @@ Feature: Setting up a game
     |   |   |   |   |   |   |   |   |
     | P | P | P |   |   | P | P | P |
     | R | N | B | Q | K | B | N | R |
-    Then there should be no winner
+    And there should be no winner
 
   Scenario: Recognizing Stalemate lol
     Given I have a blank game
